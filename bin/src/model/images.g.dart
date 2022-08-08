@@ -10,10 +10,12 @@ Images _$ImagesFromJson(Map<String, dynamic> json) => Images(
       smallIcon: json['smallIcon'] as String?,
       icon: json['icon'] as String?,
       featured: json['featured'] as String?,
+      pois: json['pois'] as String?,
     );
 
 Map<String, dynamic> _$ImagesToJson(Images instance) => <String, dynamic>{
       'smallIcon': instance.smallIcon,
       'icon': instance.icon,
       'featured': instance.featured,
+      'pois': instance.pois,
     };

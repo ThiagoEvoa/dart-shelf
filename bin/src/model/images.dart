@@ -8,11 +8,13 @@ class Images {
     this.smallIcon,
     this.icon,
     this.featured,
+    this.pois,
   });
 
   final String? smallIcon;
   final String? icon;
   final String? featured;
+  final String? pois;
 
   factory Images.fromJson(Map<String, dynamic> json) => _$ImagesFromJson(json);
 
