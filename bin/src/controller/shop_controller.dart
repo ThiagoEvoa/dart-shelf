@@ -3,19 +3,19 @@ import 'dart:convert';
 
 import 'package:shelf/shelf.dart';
 
-import '../service/stats_service.dart';
+import '../service/shop_service.dart';
 import '../util/http_util.dart';
 
-class StatsController {
-  late StatsService service;
+class ShopController {
+  late ShopService service;
 
-  StatsController() {
-    service = StatsService();
+  ShopController() {
+    service = ShopService();
   }
 
-  FutureOr<Response> getPlayerStats(Request request, String name) async {
+  FutureOr<Response> getShop(Request request) async {
     try {
-      final response = await service.retrievePlayerStats(playerName: name);
+      final response = await service.retrieveShop();
       return Response.ok(
         json.encode(response).toString(),
         headers: HttpUtil.responseHeaders,
