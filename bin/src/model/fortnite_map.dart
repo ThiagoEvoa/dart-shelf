@@ -1,21 +1,17 @@
-import 'package:json_annotation/json_annotation.dart';
-
-import 'images.dart';
-
-part 'fortnite_map.g.dart';
-
-@JsonSerializable()
-// ignore: invalid_annotation_target
-@JsonKey(name: 'map')
 class FortniteMap {
-  FortniteMap({
-    required this.images,
-  });
+  FortniteMap({required this.map});
 
-  final Images images;
+  final String map;
 
-  factory FortniteMap.fromJson(Map<String, dynamic> json) =>
-      _$FortniteMapFromJson(json);
+  factory FortniteMap.fromJson(Map<String, dynamic> json) {
+    return FortniteMap(
+      map: json['images']['pois'],
+    );
+  }
 
-  Map<String, dynamic> toJson() => _$FortniteMapToJson(this);
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'map': map,
+    };
+  }
 }

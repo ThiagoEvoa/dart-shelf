@@ -17,7 +17,7 @@ class MapController {
     try {
       final response = await service.retrieveMap();
       return Response.ok(
-        json.encode(response).toString(),
+        json.encode(response),
         headers: HttpUtil.responseHeaders,
       );
     } catch (exception) {

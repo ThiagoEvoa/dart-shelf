@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
 
-import '../model/shop_items.dart';
+import '../model/shop.dart';
 import '../util/http_util.dart';
 
 class ShopService {
-  FutureOr<dynamic> retrieveShop() async {
+  FutureOr<Shop> retrieveShop() async {
     try {
       final response = await HttpUtil.getRequest(
         'https://fortnite-api.com/v2/shop/br',
       );
-      return ShopItems.fromJson(json.decode(response.body)['data']);
+      return Shop.fromJson(json.decode(response.body));
     } catch (exception) {
       rethrow;
     }

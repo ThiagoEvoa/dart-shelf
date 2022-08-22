@@ -17,7 +17,7 @@ class ShopController {
     try {
       final response = await service.retrieveShop();
       return Response.ok(
-        json.encode(response).toString(),
+        json.encode(response),
         headers: HttpUtil.responseHeaders,
       );
     } catch (exception) {

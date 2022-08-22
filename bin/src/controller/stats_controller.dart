@@ -17,7 +17,7 @@ class StatsController {
     try {
       final response = await service.retrievePlayerStats(playerName: name);
       return Response.ok(
-        json.encode(response).toString(),
+        json.encode(response),
         headers: HttpUtil.responseHeaders,
       );
     } catch (exception) {

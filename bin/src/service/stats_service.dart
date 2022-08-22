@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
 
-import '../model/player.dart';
+import '../model/stats.dart';
 import '../util/http_util.dart';
 
 class StatsService {
-  FutureOr<dynamic> retrievePlayerStats({required String playerName}) async {
+  FutureOr<Stats> retrievePlayerStats({required String playerName}) async {
     try {
       final response = await HttpUtil.getRequest(
         'https://fortnite-api.com/v2/stats/br/v2?name=$playerName',
       );
-      return Player.fromJson(json.decode(response.body)['data']);
+      return Stats.fromJson(json.decode(response.body));
     } catch (exception) {
       rethrow;
     }
