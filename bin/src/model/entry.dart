@@ -4,7 +4,7 @@ class Entry {
   Entry({
     required this.regularPrice,
     required this.finalPrice,
-    required this.items,
+    this.items,
     this.bundleName,
     this.bundleInfo,
     this.bundleImage,
@@ -12,17 +12,18 @@ class Entry {
 
   final int regularPrice;
   final int finalPrice;
-  final List<Item> items;
+  final List<Item>? items;
   final String? bundleName;
   final String? bundleInfo;
   final String? bundleImage;
 
   factory Entry.fromJson(Map<String, dynamic> json) {
     final bundle = json['bundle'];
+    final items = json['items'];
     return Entry(
       regularPrice: json['regularPrice'] as int,
       finalPrice: json['finalPrice'] as int,
-      items: Item.toItemList(json['items']),
+      items: items == null ? null : Item.toItemList(items),
       bundleName: bundle == null ? null : bundle['name'] as String,
       bundleInfo: bundle == null ? null : bundle['info'] as String,
       bundleImage: bundle == null ? null : bundle['image'] as String,

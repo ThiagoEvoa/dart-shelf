@@ -22,6 +22,10 @@ class Shop {
   }
 
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{'featured': featured};
+    return <String, dynamic>{
+      'featured': featured,
+      'daily': daily,
+      'specialFeatured': specialFeatured,
+    };
   }
 }
